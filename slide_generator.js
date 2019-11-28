@@ -30,7 +30,7 @@ class SliderLogistic {
 
 
 class SliderGenerator {
-    constructor(id, images = [], propsSlides = { className: '' }, propsButtons = { className: '' }) {
+    constructor(id, propsSlides = { className: '' }, propsButtons = { className: '' }) {
         this.id = id;
         this.container = document.querySelector(id);
         this.children = this.container.children;

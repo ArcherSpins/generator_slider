@@ -28,6 +28,11 @@
             width: 80%;
             margin: 100px auto;
         }
+
+        .my_class_buttons:hover {
+            background-color: rgba(0,0,0,0.7) !important;
+            transition: 0.5s;
+        }
     </style>
   </head>
   <body>
@@ -55,7 +60,7 @@
     </div>
     <script src="slide_generator.js"></script>
     <script>
-        const slide = new SliderGenerator('#slider');
+        const slide = new SliderGenerator('#slider', { className: 'my_class_slides' }, { className: 'my_class_buttons' });
     </script>
   </body>
 </html>
