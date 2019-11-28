@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #slider {
+            overflow: hidden;
+            height: 600px;
+        }
+
+        .slide {
+            background-color: rgba(0,0,0,0.1);
+            border: 1px solid gray;
+            height: 600px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 80%;
+            margin: 100px auto;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="slider">
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+            <div class="slide">
+                <img src="https://www.zastavki.com/pictures/2560x1600/2010/Nature_Other_waterfall_019570_.jpg" />
+            </div>
+        </div>
+    </div>
+    <script src="slide_generator.js"></script>
+    <script>
+        const slide = new SliderGenerator('#slider');
+    </script>
+  </body>
+</html>
