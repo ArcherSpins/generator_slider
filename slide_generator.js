@@ -6,8 +6,10 @@ class SliderLogistic {
         this.sizeSlide = sizeSlide;
         this.positionX = positionX;
 
-        this.leftButton.removeEventListener('click', () => {});
-        this.rightButton.removeEventListener('click', () => {});
+        if (window.getEventListeners(this.leftButton))
+            this.leftButton.removeEventListener('click', () => this.shiftSlide(this.sizeSlide));
+        if (window.getEventListeners(this.rightButton))
+            this.rightButton.removeEventListener('click', () => this.shiftSlide(-this.sizeSlide));
         this.addEvently();
     }
 
