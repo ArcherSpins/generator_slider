@@ -28,6 +28,51 @@ class SliderLogistic {
     }
 }
 
+class ModalGenerator {
+    static start = (message) => {
+        ModalGenerator.message = message;
+        ModalGenerator.createModal();
+        ModalGenerator.showModal();
+    }
+
+    static createModal = () => {
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            left: 50px;
+            top: 10px;
+            width: 150px;
+            border-radius: 4px;
+            background-color: #ff3131a8;
+            z-index: 9999;
+            transition: .5s;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+            padding: 10px;
+        `;
+
+        modal.animate([
+                { opacity: '0' }, 
+                { opacity: '1' }
+            ], { 
+            duration: 500,
+            iterations: 1
+        });
+
+        modal.innerText = ModalGenerator.message;
+
+        ModalGenerator.modal = modal;
+    }
+
+    static showModal = () => {
+        document.querySelector('body').appendChild(ModalGenerator.modal);
+        setTimeout(() => {
+            document.querySelector('body').removeChild(ModalGenerator.modal);
+        }, 2000);
+    }
+}
 
 class SliderGenerator {
     constructor(id, propsSlides = { className: '' }, propsButtons = { className: '' }) {
@@ -36,11 +81,8 @@ class SliderGenerator {
         this.children = this.container.children;
         this.propsSlides = propsSlides;
         this.propsButtons = propsButtons;
-        if (this.children.length) 
-            this.wrapperSlides();
-        else this.container.innerHTML = `
-            <p style="font-size: 30px; text-align: center;">Cannot be 0 slides!</p>
-        `;
+        if (this.children.length) this.wrapperSlides();
+        else ModalGenerator.start('Cannot be 0 slides!');
     }
 
     removeChildren() {
