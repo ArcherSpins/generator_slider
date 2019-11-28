@@ -6,9 +6,9 @@ class SliderLogistic {
         this.sizeSlide = sizeSlide;
         this.positionX = positionX;
 
-        if (window.getEventListeners(this.leftButton))
+        if (typeof this.leftButton.click === 'function')
             this.leftButton.removeEventListener('click', () => this.shiftSlide(this.sizeSlide));
-        if (window.getEventListeners(this.rightButton))
+        if (typeof this.rightButton.click === 'function')
             this.rightButton.removeEventListener('click', () => this.shiftSlide(-this.sizeSlide));
         this.addEvently();
     }
@@ -25,7 +25,7 @@ class SliderLogistic {
             this.positionX = -(this.sizeSlide * this.slideList.children.length - this.sizeSlide);
         else if (this.positionX < -(this.sizeSlide * this.slideList.children.length - this.sizeSlide))
             this.positionX = 0;
-        
+
         this.slideList.style.left = `${this.positionX}px`;
     }
 }
