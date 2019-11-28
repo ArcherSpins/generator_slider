@@ -36,7 +36,11 @@ class SliderGenerator {
         this.children = this.container.children;
         this.propsSlides = propsSlides;
         this.propsButtons = propsButtons;
-        this.wrapperSlides();
+        if (this.children.length) 
+            this.wrapperSlides();
+        else this.container.innerHTML = `
+            <p style="font-size: 30px; text-align: center;">Cannot be 0 slides!</p>
+        `;
     }
 
     removeChildren() {
@@ -45,7 +49,7 @@ class SliderGenerator {
 
     wrapperSlides() {
         const slideList = document.createElement('div');
-        slideList.style.cssText= `
+        slideList.style.cssText = `
             width: ${this.children.length * this.container.offsetWidth + 'px'};
             height: 100%;
             position: relative;
